@@ -1,3 +1,12 @@
+![Build](https://github.com/IvanGarciaG/user-api/actions/workflows/ci.yml/badge.svg)
+![Java](https://img.shields.io/badge/Java-21-blue)
+![Spring Boot](https://img.shields.io/badge/SpringBoot-3.2.5-brightgreen)
+![Tests](https://img.shields.io/badge/Tests-Passing-success)
+![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
+
+
+
+
 # User API – Prueba Técnica
 
 API REST desarrollada con **Spring Boot 3** para la gestión de usuarios, que incluye autenticación básica, documentación con Swagger, pruebas unitarias y ejecución en contenedores con Docker.
