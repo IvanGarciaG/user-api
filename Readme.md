@@ -3,7 +3,7 @@
 ![Spring Boot](https://img.shields.io/badge/SpringBoot-3.2.5-brightgreen)
 ![Tests](https://img.shields.io/badge/Tests-Passing-success)
 ![Docker](https://img.shields.io/badge/Docker-Enabled-blue)
-
+![Coverage](https://img.shields.io/badge/Coverage-77%25-brightgreen)
 
 
 
@@ -37,7 +37,9 @@ API REST desarrollada con **Spring Boot 3** para la gestión de usuarios, que in
   * Actualizar usuario
   * Eliminar usuario
 * 📄 Documentación interactiva con Swagger
-* 🧪 Pruebas unitarias (service + controller)
+*  Pruebas unitarias con cobertura superior al 75%  
+Validación de flujos exitosos y casos de error  
+ Uso de MockMvc para pruebas de endpoints  
 
 ---
 
@@ -159,3 +161,44 @@ Desarrollado como parte de una prueba técnica backend.
 
 [🔗 Swagger UI](http://localhost:8080/swagger-ui/index.html)
 ---
+
+## 📊 Code Coverage
+
+Cobertura actual del proyecto:
+
+- **Total:** ~77%
+- **Service:** 86%
+- **Controller:** 76%
+- **Util:** 71%
+
+> Se excluyen DTOs y modelos por no contener lógica de negocio.
+
+## 🏗️ Arquitectura
+
+El proyecto sigue una arquitectura en capas:
+
+- **Controller** → Manejo de requests HTTP
+- **Service** → Lógica de negocio
+- **DTO** → Transferencia de datos
+- **Model** → Representación interna
+- **Util** → Funcionalidades reutilizables
+
+Se priorizó la separación de responsabilidades y testabilidad.
+
+## ▶️ Ejemplo rápido
+
+```bash
+curl -X POST http://localhost:8080/auth/login \
+-H "Content-Type: application/json" \
+-d '{
+  "taxId": "CCCC990101XXX",
+  "password": "123456"
+}'
+
+## 🚀 Highlights
+
+- Filtros dinámicos tipo query (`name+eq+value`)
+- Manejo de errores con HTTP status correctos
+- Tests unitarios + de integración ligera
+- CI pipeline con GitHub Actions
+- Contenerización con Docker

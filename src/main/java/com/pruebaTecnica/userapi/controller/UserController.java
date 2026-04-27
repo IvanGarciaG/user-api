@@ -7,6 +7,8 @@ import com.pruebaTecnica.userapi.service.UserService;
 
 import jakarta.validation.Valid;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,14 +31,16 @@ public class UserController {
         return userService.getAllUsers(sortedBy, filter);
     }
 
-    @PostMapping
-public UserResponseDTO createUser(@Valid @RequestBody UserRequestDTO request) {
-    return userService.createUser(request);
+@PostMapping
+public ResponseEntity<UserResponseDTO> createUser(@Valid @RequestBody UserRequestDTO request) {
+    UserResponseDTO created = userService.createUser(request);
+    return ResponseEntity.status(HttpStatus.CREATED).body(created); 
 }
 
 @DeleteMapping("/{id}")
-public void deleteUser(@PathVariable UUID id) {
+public ResponseEntity<Void> deleteUser(@PathVariable UUID id) {
     userService.deleteUser(id);
+    return ResponseEntity.noContent().build(); 
 }
 
 @PatchMapping("/{id}")

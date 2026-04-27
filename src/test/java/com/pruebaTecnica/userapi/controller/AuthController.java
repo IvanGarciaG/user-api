@@ -21,8 +21,6 @@ public class AuthController {
     public ResponseEntity<?> login(@RequestBody LoginRequestDTO request) {
 
         UserResponseDTO user = userService.login(request);
-
-        // 🔴 AQUI ESTÁ LA CLAVE
         if (user == null) {
             return ResponseEntity.status(401).body("Credenciales incorrectas");
         }
