@@ -31,3 +31,12 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t user-api .
+
+      - name: Run Docker container
+        run: docker run -d -p 8080:8080 user-api
+
+      - name: Wait for app
+        run: sleep 10
+
+      - name: Test endpoint
+        run: curl http://localhost:8080/users
